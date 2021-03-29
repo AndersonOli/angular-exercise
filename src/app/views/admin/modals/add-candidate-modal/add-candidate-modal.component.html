@@ -1,0 +1,21 @@
+<div class="modal">
+    <div class="modal-window">
+        <p class="modal-title">New candidate</p>
+
+        <form>
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input value="Name" id="name" class="standard-input" type="text">
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input value="Email" id="email" class="standard-input" type="email">
+            </div>
+        </form>
+
+        <div class="modal-actions">
+            <button (click)="closeModal()" type="button" class="btn btn-edit-modal">Add</button>
+        </div>
+    </div>
+</div>

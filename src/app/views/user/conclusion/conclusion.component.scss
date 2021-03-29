@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+
+.container-conclusion {
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+
+    .warnign-container-text {
+        width: 55%;
+        padding: 50px;
+        border-radius: 16px;
+        background-color: $grey;
+
+        @include device(md){
+            width: 70%;
+        }
+
+        @include device(xs){
+            width: 100%;
+            padding: 40px;
+        }
+
+        @include device(sm){
+            width: 100%;
+            padding: 40px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+    }
+    
+    .btn-back-login {
+        margin-top: 100px;
+    }
+}
+

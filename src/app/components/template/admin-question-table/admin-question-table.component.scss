@@ -1,0 +1,43 @@
+.table .table-head{
+    border-top-left-radius: 0;
+}
+
+.table-actions {
+    button:first-child {
+        margin-right: 20px;
+    }
+
+    button:last-child {
+        margin-left: 20px;
+    }
+
+    button {
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background: none;
+    }
+}
+
+.container-new-questions {
+    display: flex;
+    margin-top: 20px;
+    cursor: pointer;
+    align-self: flex-end;
+    float: right;
+    text-transform: uppercase;
+    font-weight: bold;
+    align-items: center;
+    
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        width: 20px;
+        height: 20px;
+        padding: 0px;
+        border-radius: 100%;
+        margin-right: 10px;
+    }
+}

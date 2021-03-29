@@ -1,0 +1,85 @@
+@import "../../../../styles.scss";
+
+.candidate-question {
+    display: flex;
+    margin: 20px 0;
+
+    @include device(xs){
+        flex-direction: column;
+    }
+
+    @include device(sm){
+        flex-direction: column;
+    }
+
+    .question {
+        flex: 1;
+        max-width: 60%;
+
+        @include device(xs){
+            min-width: 100%;
+        }
+    
+        @include device(sm){
+            min-width: 100%;
+        }
+        
+        .enunciated {
+            padding: 15px;
+            margin: 15px 0;
+            width: 85%;
+            height: 180px;
+            overflow-y: scroll;
+            border-radius: 10px;
+            background-color: #fff;
+
+            @include device(xs){
+                width: 100%;
+            }
+        
+            @include device(sm){
+                width: 100%;
+            }
+
+            p {
+                font-family: monospace;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .result {
+        flex: 1;
+        max-width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        p {
+            margin: 5px 0;
+        }
+
+        .output-question {
+            display: block;
+
+            .correct-answer {
+                display: block;
+            }
+        }
+
+        .isnot-wrong {
+            display: none;
+        }
+
+        .answer-icon {
+            width: 35px;
+            height: 35px;
+            @include img($url: "assets/images/icons/incorrect.png");
+        }
+
+        .correct {
+            @include img($url: "assets/images/icons/correct.png");
+        }
+    }
+}

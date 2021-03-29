@@ -1,0 +1,166 @@
+@import '../../../../styles.scss';
+
+.wrapper {
+    padding: 10px 40px;
+
+    @include device(sm){
+        padding: 10px;
+    }
+
+    @include device(xs){
+        padding: 10px;
+    }
+}
+
+.container-instructions {
+    width: 85%;
+    margin: 30px auto 80px;
+    display: flex;
+    flex-direction: column;
+
+    @include device(sm){
+        width: 100%;
+    }
+
+    @include device(xs){
+        width: 100%;
+    }
+    
+    label {
+        margin: 10px; 
+        font-size: 18px;
+        color: #fff;
+    }
+
+    textarea {
+        resize: none;
+        padding: 16px;
+        border: none;
+        outline: none;
+        border-radius: 16px;
+    }
+}
+
+.container-results {
+    width: 100%;
+    display: flex;
+
+    @include device(sm){
+        flex-direction: column;
+    }
+
+    @include device(xs){
+        flex-direction: column;
+    }
+
+    .container-answer {
+        margin-right: 30px;
+
+        @include device(sm){
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    
+        @include device(xs){
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    .container-answer, .container-compilator {
+        flex: 1;
+
+        p {
+            color: $grey;
+            margin-bottom: 8px;
+        }
+
+        .box-result {
+            border-radius: 12px;
+            height: 300px;
+            background-color: $grey;
+        }
+    }
+}
+
+.check-answer-container {
+    width: 100%;
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
+
+    @include device(sm){
+        justify-content: space-between;
+    }
+
+    @include device(xs){
+        justify-content: space-between;
+    }
+
+    .img-icon {
+        height: 100%;
+    }
+
+    .result-answer {
+        width: 35px;
+        height: 35px;
+        margin-left: 20px;  
+    }
+}
+
+.actions-evaluation {
+    width: 100%;
+    margin: 30px 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: ". . .";
+
+    @include device(sm){
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include device(xs){
+        display: flex;
+        flex-direction: column;
+    }
+
+    .questions-info {
+        @include device(sm){
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        @include device(xs){
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li {
+            color: #fff;
+        }
+    }
+
+    .main-actions {
+        display: flex;
+
+        @include device(sm){
+            margin-top: 30px;
+            justify-content: space-around;
+        }
+    
+        @include device(xs){
+            margin-top: 30px;
+            justify-content: space-around;
+        }
+
+        button {
+            margin-left: 20px;
+            padding: 0 32px;
+            margin-right: 10px;
+        }
+    }
+}

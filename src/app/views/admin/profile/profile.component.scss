@@ -1,0 +1,225 @@
+@import "../../../../styles.scss";
+
+.profile-container {
+    width: 80%;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    @include device(md){
+        width: 100%;
+    }
+
+    @include device(sm){
+        width: 100%;
+    }
+
+    @include device(xs){
+        width: 100%;
+    }
+}
+
+.profile-table-container {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+
+    @include device(sm){
+        width: 100%;
+        overflow: hidden;
+    }
+
+    @include device(xs){
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .table .table-head{
+        border-top-left-radius: 0;
+    }
+}
+
+.container-profile-details {
+    width: 100%;
+    margin: 60px auto;
+    overflow: hidden;
+
+    .profile-profile-result {
+        width: 100%;
+        max-height: 300px;
+        overflow-y: scroll;
+        padding: 20px 40px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #C4C4C4;
+    }
+}
+
+.profile-question {
+    display: flex;
+    margin: 20px 0;
+
+    @include device(xs){
+        flex-direction: column;
+    }
+
+    @include device(sm){
+        flex-direction: column;
+    }
+
+    .question {
+        flex: 1;
+        max-width: 60%;
+
+        @include device(xs){
+            min-width: 100%;
+        }
+    
+        @include device(sm){
+            min-width: 100%;
+        }
+        
+        .enunciated {
+            padding: 15px;
+            margin: 15px 0;
+            width: 85%;
+            height: 180px;
+            overflow-y: scroll;
+            border-radius: 10px;
+            background-color: #fff;
+
+            @include device(xs){
+                width: 100%;
+            }
+        
+            @include device(sm){
+                width: 100%;
+            }
+
+            p {
+                font-family: monospace;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .result {
+        flex: 1;
+        max-width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        p {
+            margin: 5px 0;
+        }
+
+        .output-question {
+            display: block;
+
+            .correct-answer {
+                display: block;
+            }
+        }
+
+        .isnot-wrong {
+            display: none;
+        }
+
+        .answer-icon {
+            width: 35px;
+            height: 35px;
+            @include img($url: "assets/images/icons/incorrect.png");
+        }
+
+        .correct {
+            @include img($url: "assets/images/icons/correct.png");
+        }
+    }
+}
+
+.container-profile-details {
+    width: 100%;
+    margin: 60px auto;
+    overflow: hidden;
+
+    .profile-profile-result {
+        width: 100%;
+        max-height: 300px;
+        overflow-y: scroll;
+        padding: 20px 40px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: #C4C4C4;
+
+        @include device(sm){
+            max-height: 450px;
+        }
+
+        @include device(xs){
+            max-height: 450px;
+        }
+    }
+}
+
+.tab-container {
+    display: flex;
+    width: 100%;
+
+    @include device(sm){
+        margin-bottom: -0.5em;
+        overflow-x: scroll;
+        ::-webkit-scrollbar {
+            height: 0;
+        }
+    }
+
+    @include device(xs){
+        margin-bottom: -0.5em;
+        overflow-x: scroll;
+    }
+
+    @include device(md){
+        // margin-bottom: -20px;
+        overflow-x: scroll;
+    }
+    
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 10px 40px;
+        max-height: 40px;
+        width: auto;
+        white-space: nowrap;    
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        margin-right: 20px;
+        background-color: #8B8B8B;
+
+        @include device(md){
+            min-width: 180px;
+        }
+
+        @include device(sm){
+            min-width: 180px;
+        }
+
+        @include device(xs){
+            min-width: 180px;
+        }
+
+    }
+
+    .active-tab {
+        font-weight: bold;
+        background-color: #fff;
+    }
+}
+
+.table-row li:first-child {
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+@import '../../../../../styles.scss';
+
+.modal-window {
+
+    form {
+        margin: 20px 0;
+    }
+
+    .input-group {
+        margin: 10px 0;
+
+        label {
+            margin-top: 5px;
+            text-transform: uppercase;
+            margin-left: 15px;
+        }
+    }
+
+    .standard-input {
+        background-color: #CBCBCB;
+    }
+}
+
+.modal-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-edit-modal {
+    margin: 10px auto;
+    background-color: #CBCBCB;
+    color: #000;
+    border: none;
+    padding: 0 40px;
+    border: 1px solid #000;
+}

@@ -1,0 +1,26 @@
+<header class="admin-header">
+    <ul class="admin-top-nav">
+        <li>
+            <a routerLink="/admin/candidate" routerLinkActive="active-route">
+                candidate
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/admin/questions" routerLinkActive="active-route">
+                questions
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/admin/profiles" routerLinkActive="active-route">
+                profiles
+            </a>
+        </li>
+    </ul>
+
+    <a class="btn btn-logout" (click)="this.adminComponent.adminLogout()">
+        <img src="assets/images/icons/logout.png" alt="Logout" title="Logout">
+        logout
+    </a>
+</header>

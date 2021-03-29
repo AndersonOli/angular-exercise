@@ -1,0 +1,12 @@
+.user-header {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    .btn-logout {
+        padding: 0 34px;
+    }
+}

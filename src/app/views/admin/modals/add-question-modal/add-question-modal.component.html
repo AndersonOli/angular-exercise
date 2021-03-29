@@ -1,0 +1,75 @@
+<div class="modal">
+    <div class="modal-window">
+        <p class="modal-title">New question</p>
+
+        <form class="modal-form">
+            <div class="group-input">
+                <div class="input-group">
+                    <label for="code">
+                        Code
+                    </label>
+    
+                    <input type="text" class="standard-input input80" id="code" name="code">
+                </div>
+
+                <div class="input-group">
+                    <label for="description">
+                        Description
+                    </label>
+    
+                    <input type="text" class="standard-input input80" id="description" name="description">
+                </div>
+            </div>
+
+            <div class="group-input">
+                <div class="input-group">
+                    <label for="code">
+                        Theme
+                    </label>
+    
+                    <input type="text" class="standard-input input80" id="code" name="code">
+                </div>
+
+                <div class="input-group">
+                    <label for="description">
+                        Dificulty
+                    </label>
+    
+                    <input type="text" class="standard-input input80" id="description" name="description">
+                </div>
+
+                <div class="input-group">
+                    <label for="description">
+                        Type
+                    </label>
+    
+                    <input type="text" class="standard-input input80" id="description" name="description">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="description">
+                    Instructions
+                </label>
+
+                <textarea class="standard-input" rows="8"></textarea>
+            </div>
+
+            <div class="questions-answer">
+                <p>
+                    Answer
+                </p>
+
+                <div class="answer-handle">
+                    
+                </div>
+            </div>
+        </form>
+
+        <div class="modal-actions">
+            <button (click)="closeModal()" type="button" class="btn btn-modal">Cancel</button>
+
+            <button (click)="closeModal()" type="button" class="btn btn-modal">Validate</button>
+        </div>
+    </div>
+</div>

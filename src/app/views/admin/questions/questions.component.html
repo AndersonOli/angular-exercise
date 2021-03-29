@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <app-admin-header></app-admin-header>
+
+    <section class="questions-container">
+        <aside class="questions-table-container">
+            <ul class="tab-container">
+                <li (click)="changeTab('python')" [ngClass]="{'active-tab' : actualTab === 'python'}">Python</li>
+                <li (click)="changeTab('java')" [ngClass]="{'active-tab' : actualTab === 'java'}">Java</li>
+                <li (click)="changeTab('angular')" [ngClass]="{'active-tab' : actualTab === 'angular'}">Angular</li>
+                <li (click)="changeTab('postegres')" [ngClass]="{'active-tab' : actualTab === 'postegres'}">PostegreSQL</li>
+            </ul>
+            
+            <app-admin-question-table></app-admin-question-table>
+        </aside>
+    </section>
+</div>

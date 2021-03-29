@@ -1,0 +1,66 @@
+@import "../../../../styles.scss";
+
+.admin-header {
+    width: 100%;
+    margin-top: 10px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include device(sm){
+        flex-direction: column-reverse;
+    }
+
+    @include device(xs){
+        flex-direction: column-reverse;
+    }
+
+    .btn-logout {
+        padding: 0 34px;
+
+        @include device(sm){
+            align-self: flex-end;
+            margin-bottom: 30px;
+        }
+    
+        @include device(xs){
+            align-self: flex-end;
+            margin-bottom: 30px;
+        }
+    }
+
+    .admin-top-nav {
+        display: flex;
+        width: 450px;
+        margin-left: 200px;
+        align-items: center;
+        justify-content: space-between;
+
+        @include device(md){
+            margin-left: 0;
+        }
+
+        @include device(sm){
+            margin-left: 0;
+            max-width: 98%;
+        }
+
+        @include device(xs){
+            margin-left: 0;
+            max-width: 98%;
+        }
+
+        li {
+            a {
+                color: #000;
+                text-transform: uppercase;
+            }
+        }
+
+        .active-route {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}

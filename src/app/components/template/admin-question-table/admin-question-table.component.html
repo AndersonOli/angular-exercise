@@ -1,0 +1,67 @@
+<div class="table">
+    <div class="table-head">
+        <ul class="table-column">
+            <li>Code</li>
+            <li>Description</li>
+            <li>Dificulty</li>
+            <li style="margin-right: 0.5em!important;">Action</li>
+        </ul>
+    </div>
+
+    <div class="table-body">
+        <ul class="table-row">
+            <li>001</li>
+            <li>Description 1</li>
+            <li>EASY</li>
+            <li class="table-actions">
+                <button (click)="openDeleteModal()" class="btn-action" type="button">
+                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
+                </button>
+
+                <button (click)="openEditModal()" class="btn-action" type="button">
+                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
+                </button>
+            </li>
+        </ul>
+
+        <ul class="table-row">
+            <li>002</li>
+            <li>Description 2</li>
+            <li>MEDIUM</li>
+            <li class="table-actions">
+                <button (click)="openDeleteModal()" class="btn-action" type="button">
+                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
+                </button>
+
+                <button (click)="openEditModal()" class="btn-action" type="button">
+                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
+                </button>
+            </li>
+        </ul>
+
+        <ul class="table-row">
+            <li>003</li>
+            <li>Description 3</li>
+            <li>HARD</li>
+            <li class="table-actions">
+                <button (click)="openDeleteModal()"  class="btn-action" type="button">
+                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
+                </button>
+
+                <button (click)="openEditModal()" class="btn-action" type="button">
+                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<span (click)="openAddModal()" class="container-new-questions">
+    <button class="btn btn-add">+</button>
+    New question
+</span>
+
+<app-delete-question-modal *ngIf="showDeleteModal" (onClose)="modalDeleteClosed($event)"></app-delete-question-modal>
+<app-edit-question-modal *ngIf="showEditModal" (onClose)="modalEditClosed($event)"></app-edit-question-modal>
+<app-add-question-modal *ngIf="showAddModal" (onClose)="modalAddClosed($event)"></app-add-question-modal>
+

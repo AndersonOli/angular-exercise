@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <header class="user-header">
+        <img src="assets/images/logo/facebook.png" class="logo" alt="Facebook logo" title="Facebook logo" />
+        
+        <a class="btn" routerLink="/admin">
+            <img class="img-icon" src="assets/images/icons/lock-icon.png"/>
+            Admin zone
+        </a>
+    </header>
+
+    <section class="login-section">
+        <form>
+            <p>Let's begin evaluation</p>
+            <input class="standard-input" type="text" name="username" placeholder="Username">
+            <input class="standard-input" type="password" name="username" placeholder="Password">
+            <input class="btn btn-login" type="submit" value="Let's go" [routerLink]="['/user/main']">
+        </form>
+    </section>
+</div>

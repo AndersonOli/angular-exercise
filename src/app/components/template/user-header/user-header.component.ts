@@ -1,6 +1,6 @@
-import { UserComponent } from './../../../views/user/user.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginComponent } from 'src/app/views/user/login/login.component';
 
 @Component({
   selector: 'app-user-header',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UserHeaderComponent implements OnInit {
 
-  userComponent = new UserComponent(this.router);
+  loginComponent = new LoginComponent(this.router);
 
   constructor(private router: Router) { }
 

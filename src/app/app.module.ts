@@ -25,6 +25,8 @@ import { AdminProfileTableComponent } from './components/template/admin-profile-
 import { DeleteProfileModalComponent } from './views/admin/modals/delete-profile-modal/delete-profile-modal.component';
 import { EditProfileModalComponent } from './views/admin/modals/edit-profile-modal/edit-profile-modal.component';
 import { AddProfileModalComponent } from './views/admin/modals/add-profile-modal/add-profile-modal.component';
+import { LoginComponent } from './views/user/login/login.component';
+import { AdminLoginComponent } from './views/admin/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { AddProfileModalComponent } from './views/admin/modals/add-profile-modal
     AdminProfileTableComponent,
     DeleteProfileModalComponent,
     EditProfileModalComponent,
-    AddProfileModalComponent
+    AddProfileModalComponent,
+    LoginComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,

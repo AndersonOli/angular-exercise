@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AdminComponent } from 'src/app/views/admin/admin.component';
+import { AdminLoginComponent } from 'src/app/views/admin/admin-login/admin-login.component';
 
 @Component({
   selector: 'app-admin-header',
@@ -9,7 +9,7 @@ import { AdminComponent } from 'src/app/views/admin/admin.component';
 })
 export class AdminHeaderComponent implements OnInit {
 
-  adminComponent = new AdminComponent(this.router);
+  loginComponent = new AdminLoginComponent(this.router);
 
   constructor(private route: ActivatedRoute, private router: Router) {
     console.log(route.snapshot.routeConfig?.path);

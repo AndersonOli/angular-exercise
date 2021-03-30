@@ -143,3 +143,58 @@
         background-color: #CBCBCB;
     }
 }
+
+/* Reset Select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #CBCBCB;
+    background-image: none;
+    max-width: 80%!important;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select */
+  .select {
+    position: relative;
+    display: flex;
+    height: 3em;
+    margin-top: 10px;
+    line-height: 3;
+    background: #CBCBCB;
+    overflow: hidden;
+    border-radius: 34px;
+    flex: 1;
+  }
+  select {
+    flex: 1;
+    margin-right: 30px;
+    padding: 0 30px;
+    color: #000;
+    cursor: pointer;
+  }
+  /* Arrow */
+  .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    color: #70a8ff;
+    right: 10px;
+    padding: 0 1em;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  
+.input-group:nth-child(2){
+    margin: 10px 30px;
+}

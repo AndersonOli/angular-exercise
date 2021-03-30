@@ -23,11 +23,19 @@
 
             <div class="group-input">
                 <div class="input-group">
-                    <label for="code">
+                    <label for="theme-code">
                         Theme
                     </label>
-    
-                    <input type="text" class="standard-input input80" id="code" name="code">
+
+                    <div class="select">
+                        <select class="input80" name="theme-code" id="theme-code">
+                            <option value="none">Select Theme</option>
+                            <option value="python" selected>Python</option>
+                            <option value="java">Java</option>
+                            <option value="angular">Angular</option>
+                            <option value="postegres">Postegres</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -35,7 +43,14 @@
                         Dificulty
                     </label>
     
-                    <input type="text" class="standard-input input80" id="description" name="description">
+                    <div class="select">
+                        <select class="input80" name="dificulty" id="dificulty">
+                            <option value="none">Select dificulty</option>
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="input-group">
@@ -43,7 +58,15 @@
                         Type
                     </label>
     
-                    <input type="text" class="standard-input input80" id="description" name="description">
+                    <div class="select">
+                        <select class="input80" name="type" id="type">
+                            <option value="none">Type</option>
+                            <option value="single" selected>Single answer</option>
+                            <option value="multi">Multiple answer</option>
+                            <option value="code">Code</option>
+                            <option value="text">Text</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 

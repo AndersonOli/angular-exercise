@@ -38,19 +38,9 @@ export class AddQuestionModalComponent implements OnInit {
   answers = [
     {
       value: 1,
-      correctAnswer: false,
+      correctAnswer: true,
       answer: "Here's the first question"
     },
-    {
-      value: 2,
-      correctAnswer: true,
-      answer: "Here's the second question"
-    },
-    {
-      value: 3,
-      correctAnswer: false,
-      answer: "Here's the third question"
-    }
   ];
 
   @ViewChild('inputNewQuestion')
@@ -143,6 +133,7 @@ export class AddQuestionModalComponent implements OnInit {
       dificulty: event.target.dificulty.value,
       type: event.target.type.value,
       instructions: event.target.instructions.value,
+      answers: this.answers
     };
 
     this.addQuestion(data);

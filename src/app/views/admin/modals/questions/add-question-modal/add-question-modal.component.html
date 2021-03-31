@@ -2,7 +2,7 @@
     <div class="modal-window">
         <p class="modal-title">New question</p>
 
-        <form class="modal-form">
+        <form class="modal-form" (ngSubmit)="onSubmit($event)" #addQuestionForm="ngForm">
             <div class="group-input">
                 <div class="input-group">
                     <label for="code">
@@ -28,12 +28,10 @@
                     </label>
     
                     <div class="select">
-                        <select class="input80" name="theme-code" id="theme-code">
-                            <option value="none" selected>Select Theme</option>
-                            <option value="python">Python</option>
-                            <option value="java">Java</option>
-                            <option value="angular">Angular</option>
-                            <option value="postegres">Postegres</option>
+                        <select class="input80" name="themecode" id="theme-code">
+                            <ng-template ngFor let-item [ngForOf]="themes" let-i="index">
+                                <option [selected]="themes[i] === 'none'? 'selected' : ''" value="{{themes[i]}}">{{themes[i]}}</option>
+                            </ng-template>
                         </select>
                     </div>
                 </div>
@@ -44,12 +42,10 @@
                     </label>
     
                     <div class="select">
-                        <select class="input80" name="theme-code" id="theme-code">
-                            <option value="none" selected>Select Theme</option>
-                            <option value="python">Python</option>
-                            <option value="java">Java</option>
-                            <option value="angular">Angular</option>
-                            <option value="postegres">Postegres</option>
+                        <select class="input80" name="dificulty" id="dificulty">
+                            <ng-template ngFor let-item [ngForOf]="dificulties" let-i="index">
+                                <option [selected]="dificulties[i] === 'none'? 'selected' : ''" value="{{dificulties[i]}}">{{dificulties[i]}}</option>
+                            </ng-template>
                         </select>
                     </div>
                 </div>
@@ -60,12 +56,10 @@
                     </label>
     
                     <div class="select">
-                        <select class="input80" name="theme-code" id="theme-code">
-                            <option value="none" selected>Select Theme</option>
-                            <option value="python">Python</option>
-                            <option value="java">Java</option>
-                            <option value="angular">Angular</option>
-                            <option value="postegres">Postegres</option>
+                        <select class="input80" name="type" id="type">
+                            <ng-template ngFor let-item [ngForOf]="types" let-i="index">
+                                <option [selected]="types[i] === 'none'? 'selected' : ''" value="{{types[i]}}">{{types[i]}}</option>
+                            </ng-template>
                         </select>
                     </div>
                 </div>
@@ -76,7 +70,7 @@
                     Instructions
                 </label>
 
-                <textarea class="standard-input" rows="8"></textarea>
+                <textarea id="instructions" name="instructions" class="standard-input" rows="8"></textarea>
             </div>
 
             <div class="questions-answer">
@@ -122,12 +116,12 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal-actions">
+                <button (click)="closeModal()" type="button" class="btn btn-modal">Cancel</button>
+    
+                <button type="submit" class="btn btn-modal">Validate</button>
+            </div>
         </form>
-
-        <div class="modal-actions">
-            <button (click)="closeModal()" type="button" class="btn btn-modal">Cancel</button>
-
-            <button (click)="closeModal()" type="button" class="btn btn-modal">Validate</button>
-        </div>
     </div>
 </div>

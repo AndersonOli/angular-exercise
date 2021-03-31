@@ -9,50 +9,22 @@
     </div>
 
     <div class="table-body">
-        <ul class="table-row">
-            <li>001</li>
-            <li>Description 1</li>
-            <li>EASY</li>
-            <li class="table-actions">
-                <button (click)="openDeleteModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                </button>
-
-                <button (click)="openEditModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                </button>
-            </li>
-        </ul>
-
-        <ul class="table-row">
-            <li>002</li>
-            <li>Description 2</li>
-            <li>MEDIUM</li>
-            <li class="table-actions">
-                <button (click)="openDeleteModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                </button>
-
-                <button (click)="openEditModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                </button>
-            </li>
-        </ul>
-
-        <ul class="table-row">
-            <li>003</li>
-            <li>Description 3</li>
-            <li>HARD</li>
-            <li class="table-actions">
-                <button (click)="openDeleteModal()"  class="btn-action" type="button">
-                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                </button>
-
-                <button (click)="openEditModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                </button>
-            </li>
-        </ul>
+        <ng-template ngFor let-item [ngForOf]="questions" let-i="index" [ngForTrackBy]="trackQuestions">
+            <ul class="table-row" id="{{i}}">
+                <li>{{questions[i].code}}</li>
+                <li>{{questions[i].description}}</li>
+                <li>{{questions[i].dificulty}}</li>
+                <li class="table-actions">
+                    <button (click)="openDeleteModal(i)" class="btn-action" type="button">
+                        <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
+                    </button>
+    
+                    <button (click)="openEditModal(i)" class="btn-action" type="button">
+                        <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
+                    </button>
+                </li>
+            </ul>
+        </ng-template>
     </div>
 </div>
 
@@ -61,7 +33,7 @@
     New question
 </span>
 
-<app-delete-question-modal *ngIf="showDeleteModal" (onClose)="modalDeleteClosed($event)"></app-delete-question-modal>
-<app-edit-question-modal *ngIf="showEditModal" (onClose)="modalEditClosed($event)"></app-edit-question-modal>
-<app-add-question-modal *ngIf="showAddModal" (onClose)="modalAddClosed($event)"></app-add-question-modal>
+<app-delete-question-modal *ngIf="showDeleteModal" (onDelete)="onDeleteQuestion($event)" (onClose)="modalDeleteClosed($event)"></app-delete-question-modal>
+<app-edit-question-modal *ngIf="showEditModal" [question]="questions[this.id]" (onSave)="onEditQuestion($event)" (onClose)="modalEditClosed($event)"></app-edit-question-modal>
+<app-add-question-modal *ngIf="showAddModal" (onAdd)="onAddQuestion($event)" (onClose)="modalAddClosed($event)"></app-add-question-modal>
 

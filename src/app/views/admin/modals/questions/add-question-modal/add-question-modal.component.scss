@@ -206,6 +206,18 @@ select {
         display: flex;
         flex-direction: column;
 
+        @include device(md){
+            width: 80%;
+        }
+
+        @include device(sm){
+            width: 80%;
+        }
+
+        @include device(xs){
+            width: 80%;
+        }
+
         .question {
             margin: 10px 0;
 

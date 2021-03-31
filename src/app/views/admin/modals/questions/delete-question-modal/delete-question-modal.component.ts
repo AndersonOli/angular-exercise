@@ -15,8 +15,15 @@ export class DeleteQuestionModalComponent implements OnInit {
   @Output()
   onClose: EventEmitter<boolean> = new EventEmitter();
 
+  @Output()
+  onDelete: EventEmitter<boolean> = new EventEmitter();
+
   closeModal() {
-      this.onClose.emit(true);
+    this.onClose.emit(true);
+  }
+
+  deleteQuestion(){
+    this.onDelete.emit(true);
   }
 
 }

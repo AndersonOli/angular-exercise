@@ -2,14 +2,14 @@
     <div class="modal-window">
         <p class="modal-title">Edit question</p>
 
-        <form class="modal-form">
+        <form class="modal-form" (ngSubmit)="onSubmit($event)" #editQuestionForm="ngForm">
             <div class="group-input">
                 <div class="input-group">
                     <label for="code">
                         Code
                     </label>
     
-                    <input type="text" class="standard-input input80" id="code" name="code">
+                    <input type="text" class="standard-input input80" id="code" name="code" value="{{question.code}}">
                 </div>
 
                 <div class="input-group">
@@ -17,7 +17,7 @@
                         Description
                     </label>
     
-                    <input type="text" class="standard-input input80" id="description" name="description">
+                    <input type="text" class="standard-input input80" id="description" name="description" value="{{question.description}}">
                 </div>
             </div>
 
@@ -28,12 +28,10 @@
                     </label>
 
                     <div class="select">
-                        <select class="input80" name="theme-code" id="theme-code">
-                            <option value="none">Select Theme</option>
-                            <option value="python" selected>Python</option>
-                            <option value="java">Java</option>
-                            <option value="angular">Angular</option>
-                            <option value="postegres">Postegres</option>
+                        <select class="input80" name="themecode" id="themecode">
+                            <ng-template ngFor let-item [ngForOf]="themes" let-i="index">
+                                <option [selected]="question.theme === themes[i] ? 'selected' : ''" value="{{themes[i]}}">{{themes[i]}}</option>
+                            </ng-template>
                         </select>
                     </div>
                 </div>
@@ -45,10 +43,9 @@
     
                     <div class="select">
                         <select class="input80" name="dificulty" id="dificulty">
-                            <option value="none">Select dificulty</option>
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
+                            <ng-template ngFor let-item [ngForOf]="dificulties" let-i="index">
+                                <option [selected]="question.dificulty === dificulties[i] ? 'selected' : ' '" value="{{dificulties[i]}}">{{dificulties[i]}}</option>
+                            </ng-template>
                         </select>
                     </div>
                 </div>
@@ -60,11 +57,9 @@
     
                     <div class="select">
                         <select class="input80" name="type" id="type">
-                            <option value="none">Type</option>
-                            <option value="single" selected>Single answer</option>
-                            <option value="multi">Multiple answer</option>
-                            <option value="code">Code</option>
-                            <option value="text">Text</option>
+                            <ng-template ngFor let-item [ngForOf]="types" let-i="index">
+                                <option [selected]="question.theme === themes[i] ? 'selected' : ''" value="{{types[i]}}">{{types[i]}}</option>
+                            </ng-template>
                         </select>
                     </div>
                 </div>
@@ -75,7 +70,7 @@
                     Instructions
                 </label>
 
-                <textarea class="standard-input" rows="8"></textarea>
+                <textarea id="instructions" name="instructions" class="standard-input" rows="8">{{question.instructions}}</textarea>
             </div>
 
             <div class="questions-answer">
@@ -87,12 +82,12 @@
                     
                 </div>
             </div>
+
+            <div class="modal-actions">
+                <button (click)="closeModal()" type="button" class="btn btn-modal">Cancel</button>
+    
+                <button type="submit" class="btn btn-modal">Validate</button>
+            </div>
         </form>
-
-        <div class="modal-actions">
-            <button (click)="closeModal()" type="button" class="btn btn-modal">Cancel</button>
-
-            <button (click)="closeModal()" type="button" class="btn btn-modal">Validate</button>
-        </div>
     </div>
 </div>

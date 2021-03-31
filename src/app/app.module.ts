@@ -28,6 +28,7 @@ import { AddProfileModalComponent } from './views/admin/modals/profiles/add-prof
 import { LoginComponent } from './views/user/login/login.component';
 import { AdminLoginComponent } from './views/admin/admin-login/admin-login.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

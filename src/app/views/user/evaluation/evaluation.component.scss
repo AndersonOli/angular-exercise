@@ -88,6 +88,18 @@
     }
 }
 
+.container-compilator {
+    .box-result {
+        background: url(http://i.imgur.com/2cOaJ.png);
+        background-color: $grey;
+        background-attachment: local;
+        background-repeat: no-repeat;
+        padding-left: 35px!important;
+        padding-top: 10px;
+        border-color: #ccc;
+    }
+}
+
 .check-answer-container {
     width: 100%;
     display: flex;

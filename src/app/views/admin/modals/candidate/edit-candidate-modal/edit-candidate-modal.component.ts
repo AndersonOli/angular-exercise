@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-edit-candidate-modal',
@@ -12,10 +12,27 @@ export class EditCandidateModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Output()
-  onClose: EventEmitter<boolean> = new EventEmitter();
+  
+  @ViewChild('candidateForm') candidateForm: ElementRef | undefined;
 
-  closeModal() {
-      this.onClose.emit(true);
+  @Output()
+  onSave: EventEmitter<any> = new EventEmitter<any>();
+
+  @Input()
+  candidate: any;
+
+  saveCandidate(data: any) {
+    this.onSave.emit(data);  
+  }
+
+  onSubmit(event: any){
+    event.preventDefault();
+
+    const data = {
+      name: event.target.name.value,
+      email: event.target.email.value
+    };
+
+    this.saveCandidate(data);
   }
 }

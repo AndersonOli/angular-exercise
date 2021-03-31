@@ -27,6 +27,7 @@ import { EditProfileModalComponent } from './views/admin/modals/profiles/edit-pr
 import { AddProfileModalComponent } from './views/admin/modals/profiles/add-profile-modal/add-profile-modal.component';
 import { LoginComponent } from './views/user/login/login.component';
 import { AdminLoginComponent } from './views/admin/admin-login/admin-login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { AdminLoginComponent } from './views/admin/admin-login/admin-login.compo
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

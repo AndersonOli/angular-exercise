@@ -2,20 +2,31 @@
     <div class="modal-window">
         <p class="modal-title">New candidate</p>
 
-        <form>
+        <form (ngSubmit)="onSubmit($event)" #candidateFormAdd="ngForm">
+            <div class="input-group">
+                <label for="id">ID</label>
+                <input id="id" class="standard-input" type="text">
+            </div>
+
             <div class="input-group">
                 <label for="name">Name</label>
-                <input value="Name" id="name" class="standard-input" type="text">
+                <input id="name" class="standard-input" type="text">
+            </div>
+
+            <div class="input-group">
+                <label for="status">Status</label>
+                <input id="status" class="standard-input" type="text">
             </div>
             
             <div class="input-group">
                 <label for="email">Email</label>
-                <input value="Email" id="email" class="standard-input" type="email">
+                <input id="email" class="standard-input" type="email">
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-edit-modal">Add</button>
+                <button (click)="closeModal()" type="button" class="btn btn-edit-modal">Cancelar</button>
             </div>
         </form>
-
-        <div class="modal-actions">
-            <button (click)="closeModal()" type="button" class="btn btn-edit-modal">Add</button>
-        </div>
     </div>
 </div>

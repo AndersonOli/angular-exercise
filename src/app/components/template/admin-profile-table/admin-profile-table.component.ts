@@ -18,37 +18,86 @@ export class AdminProfileTableComponent implements OnInit {
     this.showChangeDesc = !this.showChangeDesc;
   }
 
-   // delete modal
-   showDeleteModal: boolean = false;
+  // generating table
+  profiles = [
+    {
+      code: '001',
+      description: 'Description 1',
+      dificulty: 'HARD'
+    },
+    {
+     code: '002',
+     description: 'Description 2',
+     dificulty: 'MEDIUM'
+    },
+    {
+      code: '003',
+      description: 'Description 3',
+      dificulty: 'EASY'
+    }
+  ];
+  
+  id = 0;
 
-   modalDeleteClosed(isClosed: boolean) {
-     this.showDeleteModal = false;
-   }
- 
-   openDeleteModal(){
-     this.showDeleteModal = true;
-   }
- 
-   // edit modal
-   showEditModal: boolean = false;
- 
-   modalEditClosed(isClosed: boolean) {
-     this.showEditModal = false;
-   }
- 
-   openEditModal(){
-     this.showEditModal = true;
-   }
-   
-   // add modal
-   showAddModal: boolean = false;
- 
-   modalAddClosed(isClosed: boolean) {
-     this.showAddModal = false;
-   }
- 
-   openAddModal(){
-     this.showAddModal = true;
-   }
+  // add modal
+  showAddModal: boolean = false;
 
+  modalAddClosed(isClosed: boolean) {
+    this.showAddModal = false;
+  }
+
+  openAddModal(){
+    this.showAddModal = true;
+  }
+
+  addProfile(data: any){
+    // insert data
+    this.profiles.push(data);
+
+    //closes modal
+    this.modalAddClosed(true);
+  }
+
+  //edit modal
+  showEditModal: boolean = false;
+
+  modalEditClosed(isClosed: boolean) {
+    this.showEditModal = false;
+  }
+
+  openEditModal(id: any){
+    this.id = id;
+    this.showEditModal = true;
+  }
+
+  onSaveProfile(data: any){
+    // updates the data
+    this.profiles[this.id] = data;
+
+    // closes modal
+    this.modalEditClosed(true);
+  }
+
+  // delete modal
+  showDeleteModal: boolean = false;
+
+  modalDeleteClosed(isClosed: boolean) {
+    this.showDeleteModal = false;
+  }
+
+  openDeleteModal(id: any){
+    this.id = id;
+    this.showDeleteModal = true;
+  }
+
+  onDeleteProfile(){
+    // remove the candidate
+    this.profiles.splice(this.id, 1);
+
+    // closes modal
+    this.modalDeleteClosed(true);
+  }
+
+  // runs every time that the table changes 
+  trackProfiles(){}
 }

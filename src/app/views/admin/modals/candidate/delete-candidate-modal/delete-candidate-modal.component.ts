@@ -15,7 +15,14 @@ export class DeleteCandidateModalComponent implements OnInit {
   @Output()
   onClose: EventEmitter<boolean> = new EventEmitter();
 
+  @Output()
+  onDelete: EventEmitter<any> = new EventEmitter();
+
   closeModal() {
       this.onClose.emit(true);
+  }
+
+  deleteCandidate(){
+    this.onDelete.emit(true);
   }
 }

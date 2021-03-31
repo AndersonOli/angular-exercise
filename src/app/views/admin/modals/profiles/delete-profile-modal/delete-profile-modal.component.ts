@@ -16,8 +16,14 @@ export class DeleteProfileModalComponent implements OnInit {
   @Output()
   onClose: EventEmitter<boolean> = new EventEmitter();
 
+  @Output()
+  onDelete: EventEmitter<any> = new EventEmitter();
+
   closeModal() {
-      this.onClose.emit(true);
+    this.onClose.emit(true);
   }
 
+  deleteProfile(){
+    this.onDelete.emit(true);
+  }
 }

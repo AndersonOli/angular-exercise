@@ -15,69 +15,23 @@
                 </div>
 
                 <div class="table-body">
-                    <ul class="table-row">
-                        <li (click)="openResult()">Candidate 1</li>
-                        <li>DD/MM/YY</li>
-                        <li>12345</li>
-                        <li>PENDENT</li>
-                        <li class="table-actions">
-                            <button (click)="openDeleteModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                            </button>
-
-                            <button (click)="openEditModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                            </button>
-                        </li>
-                    </ul>
-
-                    <ul class="table-row">
-                        <li (click)="openResult()">Candidate 1</li>
-                        <li>DD/MM/YY</li>
-                        <li>12345</li>
-                        <li>PENDENT</li>
-                        <li class="table-actions">
-                            <button (click)="openDeleteModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                            </button>
-
-                            <button (click)="openEditModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                            </button>
-                        </li>
-                    </ul>
-
-                    <ul class="table-row">
-                        <li (click)="openResult()">Candidate 1</li>
-                        <li>DD/MM/YY</li>
-                        <li>12345</li>
-                        <li>PENDENT</li>
-                        <li class="table-actions">
-                            <button (click)="openDeleteModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                            </button>
-
-                            <button (click)="openEditModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                            </button>
-                        </li>
-                    </ul>
-
-                    <ul class="table-row">
-                        <li (click)="openResult()">Candidate 1</li>
-                        <li>DD/MM/YY</li>
-                        <li>12345</li>
-                        <li>PENDENT</li>
-                        <li class="table-actions">
-                            <button (click)="openDeleteModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                            </button>
-
-                            <button (click)="openEditModal()" class="btn-action" type="button">
-                                <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                            </button>
-                        </li>
-                    </ul>
+                    <ng-template ngFor let-item [ngForOf]="candidates" let-i="index" [ngForTrackBy]="trackCandidates">
+                        <ul class="table-row" id="{{candidates[i].id}}">
+                            <li (click)="openResult()">{{candidates[i].name}}</li>
+                            <li>{{candidates[i].created}}</li>
+                            <li>{{candidates[i].id}}</li>
+                            <li>{{candidates[i].status}}</li>
+                            <li class="table-actions">
+                                <button (click)="openDeleteModal(i)" class="btn-action" type="button">
+                                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
+                                </button>
+    
+                                <button (click)="openEditModal(i)" class="btn-action" type="button">
+                                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
+                                </button>
+                            </li>
+                        </ul>
+                    </ng-template>
                 </div>
             </div>
 
@@ -101,7 +55,7 @@
         </section>
     </section>
 
-    <app-delete-candidate-modal *ngIf="showDeleteModal" (onClose)="modalDeleteClosed($event)"></app-delete-candidate-modal>
-    <app-edit-candidate-modal *ngIf="showEditModal" (onClose)="modalEditClosed($event)"></app-edit-candidate-modal>
-    <app-add-candidate-modal *ngIf="showAddModal" (onClose)="modalAddClosed($event)"></app-add-candidate-modal>
+    <app-delete-candidate-modal *ngIf="showDeleteModal" (onDelete)="onDeleteCandidate()" (onClose)="modalDeleteClosed($event)"></app-delete-candidate-modal>
+    <app-edit-candidate-modal *ngIf="showEditModal" [candidate]="candidates[this.id]" (onSave)="onEditCandidate($event)"></app-edit-candidate-modal>
+    <app-add-candidate-modal *ngIf="showAddModal" (onAdd)="addCandidate($event)" (onClose)="modalAddClosed($event)"></app-add-candidate-modal>
 </div>

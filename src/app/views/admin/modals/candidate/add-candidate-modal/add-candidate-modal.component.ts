@@ -15,8 +15,28 @@ export class AddCandidateModalComponent implements OnInit {
   @Output()
   onClose: EventEmitter<boolean> = new EventEmitter();
 
+  @Output()
+  onAdd: EventEmitter<any> = new EventEmitter();
+
   closeModal() {
-      this.onClose.emit(true);
+    this.onClose.emit(true);
+  }
+
+  addCandidate(data: any){
+    this.onAdd.emit(data);
+  }
+
+  onSubmit(event: any){
+    event.preventDefault();
+
+    const data = {
+      id: event.target.id.value,
+      name: event.target.name.value,
+      email: event.target.email.value,
+      status: event.target.status.value
+    }
+
+    this.addCandidate(data);
   }
 
 }

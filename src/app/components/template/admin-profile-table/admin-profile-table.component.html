@@ -9,50 +9,22 @@
     </div>
 
     <div class="table-body">
-        <ul class="table-row">
-            <li (click)="openChangeDesc()">001</li>
-            <li>Description 1</li>
-            <li>EASY</li>
-            <li class="table-actions">
-                <button (click)="openDeleteModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                </button>
-
-                <button (click)="openEditModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                </button>
-            </li>
-        </ul>
-
-        <ul class="table-row">
-            <li (click)="openChangeDesc()">002</li>
-            <li>Description 2</li>
-            <li>MEDIUM</li>
-            <li class="table-actions">
-                <button (click)="openDeleteModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                </button>
-
-                <button (click)="openEditModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                </button>
-            </li>
-        </ul>
-
-        <ul class="table-row">
-            <li (click)="openChangeDesc()">003</li>
-            <li>Description 3</li>
-            <li>HARD</li>
-            <li class="table-actions">
-                <button (click)="openDeleteModal()"  class="btn-action" type="button">
-                    <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                </button>
-
-                <button (click)="openEditModal()" class="btn-action" type="button">
-                    <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                </button>
-            </li>
-        </ul>
+        <ng-template ngFor let-item [ngForOf]="profiles" let-i="index" [ngForTrackBy]="trackProfiles">
+            <ul class="table-row" id="{{i}}">
+                <li (click)="openChangeDesc()">{{profiles[i].code}}</li>
+                <li>{{profiles[i].description}}</li>
+                <li>{{profiles[i].dificulty}}</li>
+                <li class="table-actions">
+                    <button (click)="openDeleteModal(i)" class="btn-action" type="button">
+                        <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
+                    </button>
+    
+                    <button (click)="openEditModal(i)" class="btn-action" type="button">
+                        <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
+                    </button>
+                </li>
+            </ul>
+        </ng-template>
     </div>
 </div>
 
@@ -95,7 +67,7 @@
     </aside>
 </section>
 
-<app-delete-profile-modal *ngIf="showDeleteModal" (onClose)="modalDeleteClosed($event)"></app-delete-profile-modal>
-<app-edit-profile-modal *ngIf="showEditModal" (onClose)="modalEditClosed($event)"></app-edit-profile-modal>
-<app-add-profile-modal *ngIf="showAddModal" (onClose)="modalAddClosed($event)"></app-add-profile-modal>
+<app-delete-profile-modal *ngIf="showDeleteModal" (onDelete)="onDeleteProfile()" (onClose)="modalDeleteClosed($event)"></app-delete-profile-modal>
+<app-edit-profile-modal *ngIf="showEditModal" [profile]="profiles[this.id]" (onSave)="onSaveProfile($event)" (onClose)="modalEditClosed($event)"></app-edit-profile-modal>
+<app-add-profile-modal *ngIf="showAddModal" (onAdd)="addProfile($event)" (onClose)="modalAddClosed($event)"></app-add-profile-modal>
 

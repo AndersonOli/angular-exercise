@@ -2,20 +2,20 @@
     <div class="modal-window">
         <p class="modal-title">Edit candidate</p>
 
-        <form>
+        <form (ngSubmit)="onSubmit($event)" #candidateForm="ngForm">
             <div class="input-group">
                 <label for="name">Name</label>
-                <input id="name" class="standard-input" type="text">
+                <input id="name" class="standard-input" type="text" value="{{candidate.name}}">
             </div>
             
             <div class="input-group">
                 <label for="email">Email</label>
-                <input id="email" class="standard-input" type="email">
+                <input id="email" class="standard-input" type="email" value="{{candidate.email}}">
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit" class="btn btn-edit-modal">Confirm</button>
             </div>
         </form>
-
-        <div class="modal-actions">
-            <button (click)="closeModal()" type="button" class="btn btn-edit-modal">Confirm</button>
-        </div>
     </div>
 </div>

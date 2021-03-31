@@ -138,7 +138,6 @@
 
     .answer-handle {
         width: 100%;
-        min-height: 250px;
         border-radius: 10px;
         background-color: #CBCBCB;
     }
@@ -197,4 +196,62 @@ select {
   
 .input-group:nth-child(2){
     margin: 10px 30px;
+}
+
+.answer-handle {
+    padding: 20px;
+
+    .questions-list {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        .question {
+            margin: 10px 0;
+
+            label {
+                margin-left: 10px;
+            }
+        }
+
+        .btn-action {
+            height: 16px;
+            margin-left: 5px;
+            margin-right: 10px;
+            border: none;
+            outline: none;
+            background: none;
+
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
+
+.new-question {
+    margin: 15px 0;
+    
+    input {
+        outline: none;
+        width: 80%;
+        padding: 4px 12px;
+        height: 26px;
+        border: none;
+        border-radius: 20px;
+    }
+
+    button {
+        cursor: pointer;
+        margin-left: -22px;
+        width: 18px;
+        height: 18px;
+        text-align: center;
+        line-height: 12px;
+        border: none;
+        outline: none;
+        color: #fff;
+        border-radius: 100%;
+        background-color: #094e94;
+    }
 }

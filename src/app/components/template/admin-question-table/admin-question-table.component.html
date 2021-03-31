@@ -34,6 +34,6 @@
 </span>
 
 <app-delete-question-modal *ngIf="showDeleteModal" (onDelete)="onDeleteQuestion($event)" (onClose)="modalDeleteClosed($event)"></app-delete-question-modal>
-<app-edit-question-modal *ngIf="showEditModal" [question]="questions[this.id]" (onSave)="onEditQuestion($event)" (onClose)="modalEditClosed($event)"></app-edit-question-modal>
+<app-edit-question-modal *ngIf="showEditModal" [question]="questions[this.id]" [answers]="questions[this.id].answers" (onSave)="onEditQuestion($event)" (onClose)="modalEditClosed($event)"></app-edit-question-modal>
 <app-add-question-modal *ngIf="showAddModal" (onAdd)="onAddQuestion($event)" (onClose)="modalAddClosed($event)"></app-add-question-modal>
 

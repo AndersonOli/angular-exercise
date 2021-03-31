@@ -80,36 +80,25 @@
 
                 <div class="answer-handle">
                     <div class="questions-list">
-                        <div class="question">
-                            <input type="radio" id="question-answer-1" name="question-answer-1" value="1">
-                            <label for="question-answer-1">Here's the firt question</label>
-
-                            <button class="btn-action" type="button">
-                                <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                            </button>
-            
-                            <button class="btn-action" type="button">
-                                <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                            </button>
-                        </div>
-
-                        <div class="question">
-                            <input type="radio" id="question-answer-1" name="question-answer-1" value="1">
-                            <label for="question-answer-1">Here's the firt question</label>
-
-                            <button class="btn-action" type="button">
-                                <img src="assets/images/icons/trash.png" alt="Delete this candidate" title="Delete this candidate"/>
-                            </button>
-            
-                            <button class="btn-action" type="button">
-                                <img src="assets/images/icons/edit.png" alt="Edit this candidate" title="Edit this candidate"/>
-                            </button>
-                        </div>
+                        <ng-template onChange="trackQuestions" ngFor let-item [ngForOf]="answers" let-i="index">
+                            <div class="question">
+                                <input (change)="handleChange($event)" [checked]="answers[i].correctAnswer" type="radio" id="question-answer-{{i}}" name="question-answer-1" value="{{answers[i].value}}">
+                                <label for="question-answer-1">{{answers[i].answer}}</label>
+    
+                                <button (click)="deleteAnswer(i)" class="btn-action" type="button">
+                                    <img src="assets/images/icons/trash.png" alt="Delete this answer" title="Delete this answer"/>
+                                </button>
+                
+                                <button (click)="editAnswer(i)" class="btn-action" type="button">
+                                    <img src="assets/images/icons/edit.png" alt="Edit this answer" title="Edit this answer"/>
+                                </button>
+                            </div>
+                        </ng-template>
 
                         <div class="new-question">
-                            <input placeholder="Input for new question" name="nq" id="nq">
+                            <input #inputNewQuestion placeholder="Input for new question" name="nq" id="nq">
 
-                            <button id="add-question" type="button">
+                            <button (click)="addNewAnswer()" id="add-question" type="button">
                                 +
                             </button>
                         </div>

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-add-question-modal',
@@ -34,6 +34,90 @@ export class AddQuestionModalComponent implements OnInit {
     'Code',
     'Text'
   ];
+
+  answers = [
+    {
+      value: 1,
+      correctAnswer: false,
+      answer: "Here's the first question"
+    },
+    {
+      value: 2,
+      correctAnswer: true,
+      answer: "Here's the second question"
+    },
+    {
+      value: 3,
+      correctAnswer: false,
+      answer: "Here's the third question"
+    }
+  ];
+
+  @ViewChild('inputNewQuestion')
+  inputNewQuestion!: ElementRef;
+
+  editMode: boolean = false;
+  editIndex = 0;
+
+  addNewAnswer(){
+    // updates if exists
+    if(this.editMode){
+      const answer = {
+        value: this.answers[this.editIndex].value,
+        correctAnswer: this.answers[this.editIndex].correctAnswer,
+        answer: this.inputNewQuestion.nativeElement.value
+      };
+
+      this.answers[this.editIndex] = answer;
+      this.inputNewQuestion.nativeElement.value = '';
+
+      return;
+    }
+
+    var answerValue = 0;
+
+    //add
+    if(this.answers.length > 0){
+      const answerValue = (this.answers[this.answers.length - 1].value);
+    } 
+    
+    const answer = {
+      value: (answerValue + 1),
+      correctAnswer: false,
+      answer: this.inputNewQuestion.nativeElement.value
+    };
+
+    this.answers.push(answer);
+    this.inputNewQuestion.nativeElement.value = '';
+  }
+
+  editAnswer(index: any){
+    this.editMode = true;
+    this.editIndex = index;
+
+    const oldAnswer = this.answers[index].answer;
+    this.inputNewQuestion.nativeElement.value = oldAnswer;
+  }
+
+  deleteAnswer(id: any){
+    this.answers.splice(id, 1);
+  }
+
+  handleChange(event: any){
+    var value = event.target.value;
+
+    this.answers.forEach((element, index) => {
+      if(value == this.answers[index].value){
+        this.answers.forEach((element, index) => {
+          this.answers[index].correctAnswer = false;
+        });
+
+        this.answers[index].correctAnswer = true;
+      }
+    });
+
+    console.log(this.answers)
+  }
 
   @Output()
   onClose: EventEmitter<boolean> = new EventEmitter();

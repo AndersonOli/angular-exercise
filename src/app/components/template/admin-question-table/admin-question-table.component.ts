@@ -21,7 +21,24 @@ export class AdminQuestionTableComponent implements OnInit {
       dificulty: 'HARD',
       theme: 'Python',
       type: 'single',
-      instructions: 'I dont know'
+      instructions: 'I dont know',
+      answers: [
+        {
+          value: 1,
+          correctAnswer: false,
+          answer: "Here's the first question"
+        },
+        {
+          value: 2,
+          correctAnswer: true,
+          answer: "Here's the second question"
+        },
+        {
+          value: 3,
+          correctAnswer: false,
+          answer: "Here's the third question"
+        }
+    ],
     },
     {
       code: '002',
@@ -29,7 +46,24 @@ export class AdminQuestionTableComponent implements OnInit {
       dificulty: 'MEDIUM',
       theme: 'Java',
       type: 'multiple',
-      instructions: 'I dont know'
+      instructions: 'I dont know',
+      answers: [
+        {
+          value: 1,
+          correctAnswer: false,
+          answer: "Here's the first question"
+        },
+        {
+          value: 2,
+          correctAnswer: true,
+          answer: "Here's the second question"
+        },
+        {
+          value: 3,
+          correctAnswer: false,
+          answer: "Here's the third question"
+        }
+    ],
     },
     {
       code: '003',
@@ -37,7 +71,24 @@ export class AdminQuestionTableComponent implements OnInit {
       dificulty: 'EASY',
       theme: 'Angular',
       type: 'text',
-      instructions: 'I dont know'
+      instructions: 'I dont know',
+      answers: [
+        {
+          value: 1,
+          correctAnswer: false,
+          answer: "Here's the first question"
+        },
+        {
+          value: 2,
+          correctAnswer: true,
+          answer: "Here's the second question"
+        },
+        {
+          value: 3,
+          correctAnswer: false,
+          answer: "Here's the third question"
+        }
+    ],
     }
   ]
 

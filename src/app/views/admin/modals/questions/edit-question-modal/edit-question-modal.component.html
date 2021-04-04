@@ -6,7 +6,7 @@
             <div class="group-input">
                 <div class="input-group">
                     <label for="code">
-                        Code
+                        Code 
                     </label>
     
                     <input type="text" class="standard-input input80" id="code" name="code" value="{{question.code}}">
@@ -44,7 +44,7 @@
                     <div class="select">
                         <select class="input80" name="dificulty" id="dificulty">
                             <ng-template ngFor let-item [ngForOf]="dificulties" let-i="index">
-                                <option [selected]="question.dificulty === dificulties[i] ? 'selected' : ' '" value="{{dificulties[i]}}">{{dificulties[i]}}</option>
+                                <option [selected]="question.dificulty === dificulties[i] ? 'selected' : ''" value="{{dificulties[i]}}">{{dificulties[i]}}</option>
                             </ng-template>
                         </select>
                     </div>
@@ -56,9 +56,9 @@
                     </label>
     
                     <div class="select">
-                        <select class="input80" name="type" id="type">
+                        <select (change)="handleChangeType($event)" class="input80" name="type" id="type">
                             <ng-template ngFor let-item [ngForOf]="types" let-i="index">
-                                <option [selected]="question.theme === themes[i] ? 'selected' : ''" value="{{types[i]}}">{{types[i]}}</option>
+                                <option [selected]="question.type === types[i] ? 'selected' : ''" value="{{types[i]}}">{{types[i]}}</option>
                             </ng-template>
                         </select>
                     </div>
@@ -78,32 +78,48 @@
                     Answer
                 </p>
 
-                <div class="answer-handle">
-                    <div class="questions-list">
-                        <ng-template onChange="trackQuestions" ngFor let-item [ngForOf]="answers" let-i="index">
-                            <div class="question">
-                                <input (change)="handleChange($event)" [checked]="answers[i].correctAnswer" type="radio" id="question-answer-{{i}}" name="question-answer-1" value="{{answers[i].value}}">
-                                <label for="question-answer-1">{{answers[i].answer}}</label>
+                <div class="main-handle" [ngSwitch]="question.type" [ngClass]="{'answer-padding' : question.type !== 'Code'}">
+                    <app-single *ngSwitchCase="'Single answer'" [inputAnswers]="question.answers" (onChangeAnswers)="recieveAnswers($event)"></app-single>
+
+                    <!-- <div *ngSwitchCase="'Single answer'" class="answer-handle">
+                        <div class="questions-list">
+                            <ng-template ngFor let-item [ngForOf]="answers.single" let-i="index">
+                                <div class="question">
+                                    <input (change)="handleChange($event)" [checked]="answers[i].correctAnswer" type="radio" id="question-answer-{{i}}" name="question-answer-1" value="{{answers[i].value}}">
+                                    <label for="question-answer-1">{{answers[i].answer}}</label>
+        
+                                    <button (click)="deleteAnswer(i)" class="btn-action" type="button">
+                                        <img src="assets/images/icons/trash.png" alt="Delete this answer" title="Delete this answer"/>
+                                    </button>
+                    
+                                    <button (click)="editAnswer(i)" class="btn-action" type="button">
+                                        <img src="assets/images/icons/edit.png" alt="Edit this answer" title="Edit this answer"/>
+                                    </button>
+                                </div>
+                            </ng-template>
     
-                                <button (click)="deleteAnswer(i)" class="btn-action" type="button">
-                                    <img src="assets/images/icons/trash.png" alt="Delete this answer" title="Delete this answer"/>
-                                </button>
-                
-                                <button (click)="editAnswer(i)" class="btn-action" type="button">
-                                    <img src="assets/images/icons/edit.png" alt="Edit this answer" title="Edit this answer"/>
+                            <div class="new-question">
+                                <input #inputEditQuestion placeholder="Input for new question" name="nq" id="nq">
+    
+                                <button (click)="addNewAnswer()" id="add-question" type="button">
+                                    +
                                 </button>
                             </div>
-                        </ng-template>
-
-                        <div class="new-question">
-                            <input #inputEditQuestion placeholder="Input for new question" name="nq" id="nq">
-
-                            <button (click)="addNewAnswer()" id="add-question" type="button">
-                                +
-                            </button>
                         </div>
+                    </div> -->
+
+                    <app-multiple *ngSwitchCase="'Multiple answer'"></app-multiple>
+                    <app-code *ngSwitchCase="'Code'"></app-code>
+                    <app-text *ngSwitchCase="'Text'"></app-text>
+
+                    <div *ngSwitchDefault class="default-type-msg">
+                        <p>
+                            Please, select a type question first.
+                        </p>
                     </div>
                 </div>
+
+                
             </div>
 
             <div class="modal-actions">

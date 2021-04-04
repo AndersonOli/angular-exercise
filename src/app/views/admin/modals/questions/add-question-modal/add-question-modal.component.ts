@@ -35,78 +35,13 @@ export class AddQuestionModalComponent implements OnInit {
     'Text'
   ];
 
-  answers = [
-    {
-      value: 1,
-      correctAnswer: true,
-      answer: "Here's the first question"
-    },
-  ];
+  typeQuestion: string = 'None';
 
-  @ViewChild('inputNewQuestion')
-  inputNewQuestion!: ElementRef;
-
-  editMode: boolean = false;
-  editIndex = 0;
-
-  addNewAnswer(){
-    // updates if exists
-    if(this.editMode){
-      const answer = {
-        value: this.answers[this.editIndex].value,
-        correctAnswer: this.answers[this.editIndex].correctAnswer,
-        answer: this.inputNewQuestion.nativeElement.value
-      };
-
-      this.answers[this.editIndex] = answer;
-      this.inputNewQuestion.nativeElement.value = '';
-
-      return;
-    }
-
-    var answerValue = 0;
-
-    //add
-    if(this.answers.length > 0){
-      const answerValue = (this.answers[this.answers.length - 1].value);
-    } 
-    
-    const answer = {
-      value: (answerValue + 1),
-      correctAnswer: false,
-      answer: this.inputNewQuestion.nativeElement.value
-    };
-
-    this.answers.push(answer);
-    this.inputNewQuestion.nativeElement.value = '';
-  }
-
-  editAnswer(index: any){
-    this.editMode = true;
-    this.editIndex = index;
-
-    const oldAnswer = this.answers[index].answer;
-    this.inputNewQuestion.nativeElement.value = oldAnswer;
-  }
-
-  deleteAnswer(id: any){
-    this.answers.splice(id, 1);
-  }
-
-  handleChange(event: any){
+  // change the type of answer of the question
+  handleChangeType(event: any){
     var value = event.target.value;
 
-    this.answers.forEach((element, index) => {
-      if(value == this.answers[index].value){
-        this.answers.forEach((element, index) => {
-          this.answers[index].correctAnswer = false;
-        });
-
-        this.answers[index].correctAnswer = true;
-      }
-    });
-
-    console.log(this.answers)
+    this.typeQuestion = value;
   }
 
   @Output()
@@ -123,20 +58,70 @@ export class AddQuestionModalComponent implements OnInit {
     this.onAdd.emit(data);
   }
 
+  answers: any = {};
+
   onSubmit(event: any){
     event.preventDefault();
 
-    const data = {
-      code: event.target.code.value,
-      description: event.target.description.value,
-      theme: event.target.themecode.value,
-      dificulty: event.target.dificulty.value,
-      type: event.target.type.value,
-      instructions: event.target.instructions.value,
-      answers: this.answers
-    };
+    let data = {};
+    let type = event.target.type.value;
+
+    switch(type){
+      case 'Single answer':
+        data = {
+          code: event.target.code.value,
+          description: event.target.description.value,
+          theme: event.target.themecode.value,
+          dificulty: event.target.dificulty.value,
+          type: type,
+          instructions: event.target.instructions.value,
+          answers: this.answers,
+        };
+        break;
+
+      case 'Multiple answer':
+        data = {
+          code: event.target.code.value,
+          description: event.target.description.value,
+          theme: event.target.themecode.value,
+          dificulty: event.target.dificulty.value,
+          type: type,
+          instructions: event.target.instructions.value,
+          answers: this.answers,
+        };
+        break;
+
+      case 'Code':
+        data = {
+          code: event.target.code.value,
+          description: event.target.description.value,
+          theme: event.target.themecode.value,
+          dificulty: event.target.dificulty.value,
+          type: type,
+          instructions: event.target.instructions.value,
+          answers: this.answers,
+        };
+        break;
+
+      case 'Text':
+        data = {
+          code: event.target.code.value,
+          description: event.target.description.value,
+          theme: event.target.themecode.value,
+          dificulty: event.target.dificulty.value,
+          type: type,
+          instructions: event.target.instructions.value,
+          answers: this.answers,
+        };
+        break;
+    }
 
     this.addQuestion(data);
+  }
+
+  recieveAnswers(data: any){
+    console.log(data);
+    this.answers = data;
   }
 
 }

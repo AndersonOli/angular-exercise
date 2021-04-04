@@ -8,7 +8,8 @@ import { Query } from '@angular/core';
 })
 export class EditQuestionModalComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -48,6 +49,19 @@ export class EditQuestionModalComponent implements OnInit {
     'Text'
   ];
 
+  typeQuestion: string = 'None';
+
+  recieveAnswers(data: any){
+    console.log(data);
+    this.answers = data;
+  }
+
+  // change the type of answer of the question
+  handleChangeType(event: any){
+    var value = event.target.value;
+    this.question.type = value;
+  }
+
   @Input()
   answers: any;
 
@@ -66,6 +80,9 @@ export class EditQuestionModalComponent implements OnInit {
       this.answers[this.editIndex] = answer;
       this.inputEditQuestion.nativeElement.value = '';
 
+      this.editMode = false;
+      this.editIndex = 0;
+
       return;
     }
 
@@ -74,9 +91,7 @@ export class EditQuestionModalComponent implements OnInit {
     //add
     if(this.answers.length > 0){
       const answerValue = (this.answers[this.answers.length - 1].value);
-    } 
-
-    console.log(this.answers.length);
+    }
     
     const answer = {
       value: (answerValue + 1),
@@ -102,6 +117,9 @@ export class EditQuestionModalComponent implements OnInit {
 
   handleChange(event: any){
     var value = event.target.value;
+
+    console.log(value);
+    return;
 
     for(let i = 0; i < this.answers.length; i++){
       if(value == this.answers[i].value){

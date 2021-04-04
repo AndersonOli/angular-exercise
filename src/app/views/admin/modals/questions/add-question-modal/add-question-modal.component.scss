@@ -133,14 +133,13 @@
     flex-direction: column;
 }
 
+.main-handle {
+    width: 100%;
+    height: auto;
+}
+
 .questions-answer {
     margin: 5px 0;
-
-    .answer-handle {
-        width: 100%;
-        border-radius: 10px;
-        background-color: #CBCBCB;
-    }
 }
 
 /* Reset Select */
@@ -199,71 +198,26 @@ select {
 }
 
 .answer-handle {
-    padding: 20px;
-
-    .questions-list {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-
-        @include device(md){
-            width: 80%;
-        }
-
-        @include device(sm){
-            width: 80%;
-        }
-
-        @include device(xs){
-            width: 80%;
-        }
-
-        .question {
-            margin: 10px 0;
-
-            label {
-                margin-left: 10px;
-            }
-        }
-
-        .btn-action {
-            height: 16px;
-            margin-left: 5px;
-            margin-right: 10px;
-            border: none;
-            outline: none;
-            background: none;
-
-            img {
-                height: 100%;
-            }
-        }
-    }
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #CBCBCB;
 }
 
-.new-question {
-    margin: 15px 0;
-    
-    input {
-        outline: none;
-        width: 80%;
-        padding: 4px 12px;
-        height: 26px;
-        border: none;
-        border-radius: 20px;
-    }
-
-    button {
-        cursor: pointer;
-        margin-left: -22px;
-        width: 18px;
-        height: 18px;
-        text-align: center;
-        line-height: 12px;
-        border: none;
-        outline: none;
-        color: #fff;
-        border-radius: 100%;
-        background-color: #094e94;
-    }
+.default-type-msg {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: #CBCBCB;
 }
+
+// .answer-handle {
+//     padding: 0px;
+// }
+
+// .answer-padding {
+//     padding: 20px;
+//     background-color: none!important;
+// }
+
+

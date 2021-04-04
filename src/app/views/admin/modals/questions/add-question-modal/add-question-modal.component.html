@@ -51,12 +51,12 @@
                 </div>
 
                 <div class="input-group">
-                    <label for="description">
+                    <label for="type">
                         Type
                     </label>
     
                     <div class="select">
-                        <select class="input80" name="type" id="type">
+                        <select (change)="handleChangeType($event)" class="input80" name="type" id="type">
                             <ng-template ngFor let-item [ngForOf]="types" let-i="index">
                                 <option [selected]="types[i] === 'none'? 'selected' : ''" value="{{types[i]}}">{{types[i]}}</option>
                             </ng-template>
@@ -78,30 +78,17 @@
                     Answer
                 </p>
 
-                <div class="answer-handle">
-                    <div class="questions-list">
-                        <ng-template onChange="trackQuestions" ngFor let-item [ngForOf]="answers" let-i="index">
-                            <div class="question">
-                                <input (change)="handleChange($event)" [checked]="answers[i].correctAnswer" type="radio" id="question-answer-{{i}}" name="question-answer-1" value="{{answers[i].value}}">
-                                <label for="question-answer-1">{{answers[i].answer}}</label>
-    
-                                <button (click)="deleteAnswer(i)" class="btn-action" type="button">
-                                    <img src="assets/images/icons/trash.png" alt="Delete this answer" title="Delete this answer"/>
-                                </button>
-                
-                                <button (click)="editAnswer(i)" class="btn-action" type="button">
-                                    <img src="assets/images/icons/edit.png" alt="Edit this answer" title="Edit this answer"/>
-                                </button>
-                            </div>
-                        </ng-template>
+                <div class="main-handle" [ngSwitch]="typeQuestion" [ngClass]="{'answer-padding' : typeQuestion !== 'Code'}">
 
-                        <div class="new-question">
-                            <input #inputNewQuestion placeholder="Input for new question" name="nq" id="nq">
+                    <app-single *ngSwitchCase="'Single answer'" [inputAnswers]="answers" (onChangeAnswers)="recieveAnswers($event)"></app-single>
+                    <app-multiple *ngSwitchCase="'Multiple answer'"></app-multiple>
+                    <app-code *ngSwitchCase="'Code'"></app-code>
+                    <app-text *ngSwitchCase="'Text'"></app-text>
 
-                            <button (click)="addNewAnswer()" id="add-question" type="button">
-                                +
-                            </button>
-                        </div>
+                    <div *ngSwitchDefault class="default-type-msg">
+                        <p>
+                            Please, select a type question first.
+                        </p>
                     </div>
                 </div>
             </div>

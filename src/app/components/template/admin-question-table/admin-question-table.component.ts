@@ -20,76 +20,200 @@ export class AdminQuestionTableComponent implements OnInit {
       description: 'Description 1',
       dificulty: 'HARD',
       theme: 'Python',
-      type: 'single',
+      type: 'Single answer',
       instructions: 'I dont know',
-      answers: [
-        {
-          value: 1,
-          correctAnswer: false,
-          answer: "Here's the first question"
-        },
-        {
-          value: 2,
-          correctAnswer: true,
-          answer: "Here's the second question"
-        },
-        {
-          value: 3,
-          correctAnswer: false,
-          answer: "Here's the third question"
-        }
-    ],
+      answers: {
+        single: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        multiple: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: true,
+            answer: "Here's the third question"
+          }
+        ],
+        text: 'This is a answer by text',
+        code: 'This is a answer by code'
+      },
     },
     {
       code: '002',
       description: 'Description 2',
       dificulty: 'MEDIUM',
-      theme: 'Java',
-      type: 'multiple',
+      theme: 'Angular',
+      type: 'Multiple answer',
       instructions: 'I dont know',
-      answers: [
-        {
-          value: 1,
-          correctAnswer: false,
-          answer: "Here's the first question"
-        },
-        {
-          value: 2,
-          correctAnswer: true,
-          answer: "Here's the second question"
-        },
-        {
-          value: 3,
-          correctAnswer: false,
-          answer: "Here's the third question"
-        }
-    ],
+      answers: {
+        single: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        multiple: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 4,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        text: 'This is a answer by text',
+        code: 'This is a answer by code'
+      },
     },
     {
       code: '003',
       description: 'Description 3',
       dificulty: 'EASY',
-      theme: 'Angular',
-      type: 'text',
+      theme: 'Java',
+      type: 'Code',
       instructions: 'I dont know',
-      answers: [
-        {
-          value: 1,
-          correctAnswer: false,
-          answer: "Here's the first question"
-        },
-        {
-          value: 2,
-          correctAnswer: true,
-          answer: "Here's the second question"
-        },
-        {
-          value: 3,
-          correctAnswer: false,
-          answer: "Here's the third question"
-        }
-    ],
-    }
+      answers: {
+        single: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        multiple: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 4,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        text: 'This is a answer by text',
+        code: 'This is a answer by code'
+      },
+    },
+    {
+      code: '004',
+      description: 'Description 4',
+      dificulty: 'EASY',
+      theme: 'Postegres',
+      type: 'Text',
+      instructions: 'I dont know',
+      answers: {
+        single: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        multiple: [
+          {
+            value: 1,
+            correctAnswer: false,
+            answer: "Here's the first question"
+          },
+          {
+            value: 2,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 3,
+            correctAnswer: true,
+            answer: "Here's the second question"
+          },
+          {
+            value: 4,
+            correctAnswer: false,
+            answer: "Here's the third question"
+          }
+        ],
+        text: 'This is a answer by text',
+        code: 'This is a answer by code'
+      },
+    },
   ]
 
   // delete modal

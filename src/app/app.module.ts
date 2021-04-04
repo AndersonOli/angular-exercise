@@ -29,6 +29,10 @@ import { LoginComponent } from './views/user/login/login.component';
 import { AdminLoginComponent } from './views/admin/admin-login/admin-login.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SingleComponent } from './views/admin/modals/questions/type-answer/single/single.component';
+import { MultipleComponent } from './views/admin/modals/questions/type-answer/multiple/multiple.component';
+import { CodeComponent } from './views/admin/modals/questions/type-answer/code/code.component';
+import { TextComponent } from './views/admin/modals/questions/type-answer/text/text.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +60,11 @@ import { CommonModule } from '@angular/common';
     EditProfileModalComponent,
     AddProfileModalComponent,
     LoginComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    SingleComponent,
+    MultipleComponent,
+    CodeComponent,
+    TextComponent
   ],
   imports: [
     BrowserModule,

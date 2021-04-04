@@ -1,1 +1,24 @@
-<p>multiple works!</p>
+<div class="questions-list">
+    <ng-template ngFor let-item [ngForOf]="answers.multiple" let-i="index">
+        <div class="question">
+            <input (change)="handleChange($event)" [checked]="answers.multiple[i].correctAnswer" type="checkbox" id="question-answer-{{i}}" name="question-answer-1" value="{{answers.multiple[i].value}}">
+            <label for="question-answer-1">{{answers.multiple[i].answer}}</label>
+
+            <button (click)="deleteAnswer(i)" class="btn-action" type="button">
+                <img src="assets/images/icons/trash.png" alt="Delete this answer" title="Delete this answer"/>
+            </button>
+
+            <button (click)="editAnswer(i)" class="btn-action" type="button">
+                <img src="assets/images/icons/edit.png" alt="Edit this answer" title="Edit this answer"/>
+            </button>
+        </div>
+    </ng-template>
+
+    <div class="new-question">
+        <input #inputNewQuestion placeholder="Input for new question" name="nq" id="nq">
+
+        <button (click)="addNewAnswer()" id="add-question" type="button">
+            +
+        </button>
+    </div>
+</div>

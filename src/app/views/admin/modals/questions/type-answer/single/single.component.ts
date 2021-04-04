@@ -113,9 +113,6 @@ export class SingleComponent implements OnInit {
       }
     });
 
-    console.log(this.answers.single)
-    return
-
     this.onChangeAnswers.emit(this.answers);
   }
 

@@ -62,64 +62,27 @@ export class AddQuestionModalComponent implements OnInit {
 
   onSubmit(event: any){
     event.preventDefault();
-
-    let data = {};
+    
     let type = event.target.type.value;
 
-    switch(type){
-      case 'Single answer':
-        data = {
-          code: event.target.code.value,
-          description: event.target.description.value,
-          theme: event.target.themecode.value,
-          dificulty: event.target.dificulty.value,
-          type: type,
-          instructions: event.target.instructions.value,
-          answers: this.answers,
-        };
-        break;
-
-      case 'Multiple answer':
-        data = {
-          code: event.target.code.value,
-          description: event.target.description.value,
-          theme: event.target.themecode.value,
-          dificulty: event.target.dificulty.value,
-          type: type,
-          instructions: event.target.instructions.value,
-          answers: this.answers,
-        };
-        break;
-
-      case 'Code':
-        data = {
-          code: event.target.code.value,
-          description: event.target.description.value,
-          theme: event.target.themecode.value,
-          dificulty: event.target.dificulty.value,
-          type: type,
-          instructions: event.target.instructions.value,
-          answers: this.answers,
-        };
-        break;
-
-      case 'Text':
-        data = {
-          code: event.target.code.value,
-          description: event.target.description.value,
-          theme: event.target.themecode.value,
-          dificulty: event.target.dificulty.value,
-          type: type,
-          instructions: event.target.instructions.value,
-          answers: this.answers,
-        };
-        break;
-    }
+    const data = {
+      code: event.target.code.value,
+      description: event.target.description.value,
+      theme: event.target.themecode.value,
+      dificulty: event.target.dificulty.value,
+      type: type,
+      instructions: event.target.instructions.value,
+      answers: this.answers,
+    };
 
     this.addQuestion(data);
   }
 
   recieveAnswers(data: any){
+    this.answers = data;
+  }
+
+  recieveAnswersMultiple(data: any){
     this.answers = data;
   }
 

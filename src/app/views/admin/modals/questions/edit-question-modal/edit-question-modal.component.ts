@@ -55,6 +55,10 @@ export class EditQuestionModalComponent implements OnInit {
     this.answers = data;
   }
 
+  recieveAnswersMultiple(data: any){
+    this.answers = data;
+  }
+
   recieveAnswerText(text: any){
     this.answers.text = text;
   }

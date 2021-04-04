@@ -83,7 +83,7 @@
                     <app-single *ngSwitchCase="'Single answer'" [inputAnswers]="answers" (onChangeAnswers)="recieveAnswers($event)"></app-single>
                     <app-multiple *ngSwitchCase="'Multiple answer'"></app-multiple>
                     <app-code *ngSwitchCase="'Code'"></app-code>
-                    <app-text *ngSwitchCase="'Text'"></app-text>
+                    <app-text *ngSwitchCase="'Text'" (onChangeAnswerText)="recieveAnswerText($event)"></app-text>
 
                     <div *ngSwitchDefault class="default-type-msg">
                         <p>

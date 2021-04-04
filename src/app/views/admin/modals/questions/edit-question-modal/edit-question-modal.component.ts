@@ -52,8 +52,11 @@ export class EditQuestionModalComponent implements OnInit {
   typeQuestion: string = 'None';
 
   recieveAnswers(data: any){
-    console.log(data);
     this.answers = data;
+  }
+
+  recieveAnswerText(text: any){
+    this.answers.text = text;
   }
 
   // change the type of answer of the question
@@ -117,9 +120,6 @@ export class EditQuestionModalComponent implements OnInit {
 
   handleChange(event: any){
     var value = event.target.value;
-
-    console.log(value);
-    return;
 
     for(let i = 0; i < this.answers.length; i++){
       if(value == this.answers[i].value){

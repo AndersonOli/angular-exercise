@@ -120,8 +120,10 @@ export class AddQuestionModalComponent implements OnInit {
   }
 
   recieveAnswers(data: any){
-    console.log(data);
     this.answers = data;
   }
 
+  recieveAnswerText(data: any){
+    this.answers.text = data;
+  }
 }

@@ -272,8 +272,6 @@ export class AdminQuestionTableComponent implements OnInit {
     // insert data
     this.questions.push(data);
 
-    console.log(data);
-
     // closes modal
     this.modalAddClosed(true);
   }

@@ -80,37 +80,9 @@
 
                 <div class="main-handle" [ngSwitch]="question.type" [ngClass]="{'answer-padding' : question.type !== 'Code'}">
                     <app-single *ngSwitchCase="'Single answer'" [inputAnswers]="question.answers" (onChangeAnswers)="recieveAnswers($event)"></app-single>
-
-                    <!-- <div *ngSwitchCase="'Single answer'" class="answer-handle">
-                        <div class="questions-list">
-                            <ng-template ngFor let-item [ngForOf]="answers.single" let-i="index">
-                                <div class="question">
-                                    <input (change)="handleChange($event)" [checked]="answers[i].correctAnswer" type="radio" id="question-answer-{{i}}" name="question-answer-1" value="{{answers[i].value}}">
-                                    <label for="question-answer-1">{{answers[i].answer}}</label>
-        
-                                    <button (click)="deleteAnswer(i)" class="btn-action" type="button">
-                                        <img src="assets/images/icons/trash.png" alt="Delete this answer" title="Delete this answer"/>
-                                    </button>
-                    
-                                    <button (click)="editAnswer(i)" class="btn-action" type="button">
-                                        <img src="assets/images/icons/edit.png" alt="Edit this answer" title="Edit this answer"/>
-                                    </button>
-                                </div>
-                            </ng-template>
-    
-                            <div class="new-question">
-                                <input #inputEditQuestion placeholder="Input for new question" name="nq" id="nq">
-    
-                                <button (click)="addNewAnswer()" id="add-question" type="button">
-                                    +
-                                </button>
-                            </div>
-                        </div>
-                    </div> -->
-
                     <app-multiple *ngSwitchCase="'Multiple answer'"></app-multiple>
                     <app-code *ngSwitchCase="'Code'"></app-code>
-                    <app-text *ngSwitchCase="'Text'"></app-text>
+                    <app-text *ngSwitchCase="'Text'" [inputAnswerText]="question.answers" (onChangeAnswerText)="recieveAnswerText($event)"></app-text>
 
                     <div *ngSwitchDefault class="default-type-msg">
                         <p>

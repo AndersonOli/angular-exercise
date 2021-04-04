@@ -37,23 +37,23 @@ export class MultipleComponent implements OnInit {
 
   addNewAnswer(){
     //updates if exists
-    // if(this.editMode){
-    //   const answer = {
-    //     value: this.answers.multiple[this.editIndex].value,
-    //     correctAnswer: this.answers.multiple[this.editIndex].correctAnswer,
-    //     answer: this.inputNewQuestion.nativeElement.value
-    //   };
+    if(this.editMode){
+      const answer = {
+        value: this.answers.multiple[this.editIndex].value,
+        correctAnswer: this.answers.multiple[this.editIndex].correctAnswer,
+        answer: this.inputNewQuestion.nativeElement.value
+      };
 
-    //   this.answers.multiple[this.editIndex] = answer;
-    //   this.inputNewQuestion.nativeElement.value = '';
+      this.answers.multiple[this.editIndex] = answer;
+      this.inputNewQuestion.nativeElement.value = '';
 
-    //   this.editMode = false;
-    //   this.editIndex = 0;
+      this.editMode = false;
+      this.editIndex = 0;
 
-    //   this.onChangeAnswersMultiple.emit(this.answers);
+      this.onChangeAnswersMultiple.emit(this.answers);
 
-    //   return;
-    // }
+      return;
+    }
 
     var answerValue = 0;
 
@@ -75,9 +75,6 @@ export class MultipleComponent implements OnInit {
     }
 
     this.inputNewQuestion.nativeElement.value = '';
-
-    console.log(this.answers);
-    return
 
     this.onChangeAnswersMultiple.emit(this.answers);
   }

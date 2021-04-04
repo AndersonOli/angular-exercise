@@ -81,7 +81,7 @@
                 <div class="main-handle" [ngSwitch]="question.type" [ngClass]="{'answer-padding' : question.type !== 'Code'}">
                     <app-single *ngSwitchCase="'Single answer'" [inputAnswers]="question.answers" (onChangeAnswers)="recieveAnswers($event)"></app-single>
                     <app-multiple *ngSwitchCase="'Multiple answer'"></app-multiple>
-                    <app-code *ngSwitchCase="'Code'"></app-code>
+                    <app-code *ngSwitchCase="'Code'" [inputAnswerCode]="question.answers" (onChangeAnswerCode)="recieveAnswerCode($event)"></app-code>
                     <app-text *ngSwitchCase="'Text'" [inputAnswerText]="question.answers" (onChangeAnswerText)="recieveAnswerText($event)"></app-text>
 
                     <div *ngSwitchDefault class="default-type-msg">

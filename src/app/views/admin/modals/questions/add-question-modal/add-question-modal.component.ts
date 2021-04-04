@@ -126,4 +126,8 @@ export class AddQuestionModalComponent implements OnInit {
   recieveAnswerText(data: any){
     this.answers.text = data;
   }
+
+  recieveAnswerCode(data: any){
+    this.answers.code = data;
+  }
 }

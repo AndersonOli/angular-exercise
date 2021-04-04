@@ -59,6 +59,10 @@ export class EditQuestionModalComponent implements OnInit {
     this.answers.text = text;
   }
 
+  recieveAnswerCode(code: any){
+    this.answers.code = code;
+  }
+
   // change the type of answer of the question
   handleChangeType(event: any){
     var value = event.target.value;
